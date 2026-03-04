@@ -2,27 +2,26 @@ let botao = document.getElementById("click")
 botao.addEventListener("click", clicar)
 let numeros = []
 function clicar(){
-    let numero = document.getElementById("numero")
-    let n = Number(numero.value)
+    const input = document.getElementById("numero")
+    const numero = input.value
     let p1 = document.getElementsByClassName("paragrafo")[0]
     let p2 = document.getElementsByClassName("paragrafo")[1]
     let p3 = document.getElementsByClassName("paragrafo")[2]
     let p4 = document.getElementsByClassName("paragrafo")[3]
     let p5 = document.getElementsByClassName("paragrafo")[4]
     let pequeno = document.getElementById("pequeno")
-    if (n > 100 || n < 1){
+    if (numero > 100 || numero < 1){
         pequeno.innerHTML = "Número inválido!"
         return
     }
-    if(numeros.indexOf(n) != -1){
+    if(numeros.indexOf(numero) != -1){
         pequeno.innerHTML = 'Número já adicionado!'
-        quant++
         return
     }
-    numeros.push(n)
+    numeros.push(numero)
     pequeno.innerHTML = 'Número adicionado!'
-    numero.value = ""
-    numero.focus()
+    input.value = ""
+    input.focus()
     let finalizar = document.getElementById("final")
      if(numeros.length === 1){
         p1.innerHTML = `Ao todo ${numeros.length} número foi adicionado.`
